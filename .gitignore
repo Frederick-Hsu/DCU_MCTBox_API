@@ -1,0 +1,5 @@
+# The below file types will be ignored by git tracking :
+*.exe
+*.cdb
+*.cws
+cvibuild*/

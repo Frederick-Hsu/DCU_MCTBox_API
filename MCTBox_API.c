@@ -13,6 +13,8 @@
 #include "MCTBox_API.h"
 #include "MCTBox_API_Version.h"
 
+#include "MCTBox_communication.h"
+
 //==============================================================================
 // Constants
 
@@ -48,20 +50,18 @@ void API MCTBoxAPI_Version(char *sMCTBox_VersionInfo)
 }
 
 /******************************************************************************/
-int API MCTBoxAPI_Init(int iComPortNr)
+int API MCTBoxAPI_Init(int iComPortNr, char *sARGOUT_ComError)
 {
-	int iResult = 0;
-	// Insert your code here...
-	
+	int iResult = 0;														
+	iResult = MCTBox_communication_RS232_Init(iComPortNr, sARGOUT_ComError);
 	return iResult;
 }
 
 /******************************************************************************/
-int API MCTBoxAPI_Exit(void)
+int API MCTBoxAPI_Exit(char *sARGOUT_ComError)
 {
 	int iResult = 0;
-	// Insert your code here...
-	
+	iResult = MCTBox_communication_RS232_Exit(sARGOUT_ComError);
 	return iResult;
 }
 

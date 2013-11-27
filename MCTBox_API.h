@@ -32,8 +32,8 @@
 			void API MCTBoxAPI_Bio(char *sMCTBox_BioInfo);
 			void API MCTBoxAPI_Version(char *sMCTBox_VersionInfo);
 			/*******************************************************************************/
-			int API MCTBoxAPI_Init(int iComPortNr);
-			int API MCTBoxAPI_Exit(void);
+			int API MCTBoxAPI_Init(int iComPortNr, char *sARGOUT_ComError);
+			int API MCTBoxAPI_Exit(char *sARGOUT_ComError);
 			
 	#ifdef __cplusplus
 	    }

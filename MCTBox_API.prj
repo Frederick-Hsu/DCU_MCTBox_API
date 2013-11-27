@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 5
+Number of Files = 7
 Target Type = "Dynamic Link Library"
 Flags = 16
 Copied From Locked InstrDrv Directory = False
@@ -74,11 +74,37 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
+[File 0006]
+File Type = "CSource"
+Res Id = 6
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_communication/MCTBox_communication.c"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_communication/MCTBox_communicat"
+Path Line0002 = "ion.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_communication"
+
+[File 0007]
+File Type = "Include"
+Res Id = 7
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_communication/MCTBox_communication.h"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_communication/MCTBox_communicat"
+Path Line0002 = "ion.h"
+Exclude = False
+Project Flags = 0
+Folder = "MCTBox_communication"
+
 [Folders]
 User Interface Files Folder Not Added Yet = True
 Instrument Files Folder Not Added Yet = True
 Folder 0 = "Source Files"
 Folder 1 = "Include Files"
+Folder 2 = "MCTBox_communication"
 
 [Custom Build Configs]
 Num Custom Build Configs = 0

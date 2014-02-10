@@ -27,6 +27,7 @@
 // Static global variables
 static void MCTBOxAPI_TF_DIOModule_SetDoutPortHighLowHelp(void);
 static void MCTBoxAPI_TF_DIOModule_GetDinPortStateHelp(void);
+static void MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStatesHelp(void);
 static void MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokensHelp(void);
 static void MCTBoxAPI_TF_DIOModule_GetDinPortStateByTokenHelp(void);
 
@@ -146,6 +147,45 @@ void API MCTBoxAPI_TF_DIOModule_GetDinPortState(int hThisStep)
 }
 
 /******************************************************************************/
+static void MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStatesHelp(void)
+{
+	TESTER_TestFunctionRegisterHelp(1, "Digital-IN Board ID",
+		"Edit the ID number of Digital-IN Board.\nRange: [0x00, 0xFF]");
+}
+
+void API MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStates(int hThisStep)
+{	  
+	int iError = 0;
+	char sError[256] = "";
+	EState eDin24PortsStateArray[24] = {OFF};
+	char sDin24PortsStateArray[32] = {0}, sTemp[4] = {0};
+	
+	TEST_PARAM_INT(1, ucDinBoardID);
+	
+	TEST_CHECK_CBREAK;
+	TEST_STEP_DELAY;
+	
+	iError = MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(ucDinBoardID, eDin24PortsStateArray, sError);
+	if (iError)
+	{
+		TEST_RETURN_TESTERERROR(iError, sError);
+		return;
+	}
+	for (int i=23; i>=0; i--)
+	{
+		if (eDin24PortsStateArray[i] == OFF)
+			sprintf(sTemp, "%s", "0");
+		else if (eDin24PortsStateArray[i] == ON)
+			sprintf(sTemp, "%s", "1");
+		
+		strcat(sDin24PortsStateArray, sTemp);
+	}
+	
+	TEST_RESULT_STR(sDin24PortsStateArray, "");
+	return;
+}
+
+/******************************************************************************/
 static void MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokensHelp(void)
 {
 	TESTER_TestFunctionRegisterHelp(1, "Digital-OUT port tokens list which you want to set HIGH", 
@@ -247,6 +287,9 @@ void API MCTBoxAPI_RegisterDIOModuleTFSteps(void)
 	
 	TEST_REGISTER(MCTBoxAPI_TF_DIOModule_GetDinPortState);
 	MCTBoxAPI_TF_DIOModule_GetDinPortStateHelp();
+	
+	TEST_REGISTER(MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStates);
+	MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStatesHelp();
 	
 	TEST_REGISTER(MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokens);
 	MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokensHelp();

@@ -42,6 +42,10 @@
 														  EState 	*eDinPortState,	// Port state returned
 														  char 		*sErrorMesg);
 			
+			int API MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(BYTE 	ucDinBoardID,
+																	 EState eDin24PortsState[24],	// 24 ports' state
+																	 char 	*sErrorMesg);
+			
 			int API MCTBoxAPI_DIOModule_DoutPortListAddEntry(char sDoutPortTokenName[],
 															 char sDoutPortDescription[],
 															 char sDoutPortConnector[],
@@ -71,6 +75,7 @@
 			// Test Functions implementation :
 			void API MCTBOxAPI_TF_DIOModule_SetDoutPortHighLow(int hThisStep);
 			void API MCTBoxAPI_TF_DIOModule_GetDinPortState(int hThisStep);
+			void API MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStates(int hThisStep);
 			void API MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokens(int hThisStep);
 			void API MCTBoxAPI_TF_DIOModule_GetDinPortStateByToken(int hThisStep);
 			

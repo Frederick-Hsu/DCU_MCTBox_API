@@ -3,3 +3,4 @@
 *.cdb
 *.cws
 cvibuild*/
+/.project

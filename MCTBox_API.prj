@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 23
+Number of Files = 26
 Target Type = "Dynamic Link Library"
 Flags = 2064
 Copied From Locked InstrDrv Directory = False
@@ -22,6 +22,29 @@ File Type = "CSource"
 Res Id = 1
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "MCTBox_AIO/AIO_Channel_LinkNode.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_AIO/AIO_Channel_LinkNode.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_AIO"
+
+[File 0002]
+File Type = "Include"
+Res Id = 2
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_AIO/AIO_Channel_LinkNode.h"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_AIO/AIO_Channel_LinkNode.h"
+Exclude = False
+Project Flags = 0
+Folder = "MCTBox_AIO"
+
+[File 0003]
+File Type = "CSource"
+Res Id = 3
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "MCTBox_DIO/DIO_Link_Node.c"
 Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_DIO/DIO_Link_Node.c"
 Exclude = False
@@ -29,9 +52,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_DIO"
 
-[File 0002]
+[File 0004]
 File Type = "Include"
-Res Id = 2
+Res Id = 4
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_DIO/DIO_Link_Node.h"
@@ -40,9 +63,9 @@ Exclude = False
 Project Flags = 0
 Folder = "MCTBox_DIO"
 
-[File 0003]
+[File 0005]
 File Type = "CSource"
-Res Id = 3
+Res Id = 5
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_AIO/MCTBox_AIO.c"
@@ -52,9 +75,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_AIO"
 
-[File 0004]
+[File 0006]
 File Type = "CSource"
-Res Id = 4
+Res Id = 6
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API.c"
@@ -64,9 +87,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0005]
+[File 0007]
 File Type = "Include"
-Res Id = 5
+Res Id = 7
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API.h"
@@ -75,9 +98,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0006]
+[File 0008]
 File Type = "Include"
-Res Id = 6
+Res Id = 8
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_AIO.h"
@@ -86,9 +109,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0007]
+[File 0009]
 File Type = "Include"
-Res Id = 7
+Res Id = 9
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_DIO.h"
@@ -97,9 +120,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0008]
+[File 0010]
 File Type = "CSource"
-Res Id = 8
+Res Id = 10
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_DLL_Main.c"
@@ -109,9 +132,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0009]
+[File 0011]
 File Type = "Include"
-Res Id = 9
+Res Id = 11
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_import_export.h"
@@ -120,9 +143,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0010]
+[File 0012]
 File Type = "Include"
-Res Id = 10
+Res Id = 12
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_SwitchControl.h"
@@ -131,9 +154,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0011]
+[File 0013]
 File Type = "Include"
-Res Id = 11
+Res Id = 13
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_Version.h"
@@ -142,9 +165,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0012]
+[File 0014]
 File Type = "CSource"
-Res Id = 12
+Res Id = 14
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_communication/MCTBox_communication.c"
@@ -155,9 +178,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_communication"
 
-[File 0013]
+[File 0015]
 File Type = "Include"
-Res Id = 13
+Res Id = 15
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_communication/MCTBox_communication.h"
@@ -167,38 +190,13 @@ Exclude = False
 Project Flags = 0
 Folder = "MCTBox_communication"
 
-[File 0014]
-File Type = "CSource"
-Res Id = 14
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "MCTBox_DIO/MCTBox_DIO.c"
-Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_DIO/MCTBox_DIO.c"
-Exclude = False
-Compile Into Object File = False
-Project Flags = 0
-Folder = "MCTBox_DIO"
-
-[File 0015]
-File Type = "CSource"
-Res Id = 15
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "MCTBox_SwitchControl/MCTBox_SwitchControl.c"
-Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_SwitchControl/MCTBox_SwitchCont"
-Path Line0002 = "rol.c"
-Exclude = False
-Compile Into Object File = False
-Project Flags = 0
-Folder = "MCTBox_SwitchControl"
-
 [File 0016]
 File Type = "CSource"
 Res Id = 16
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "MCTBox_DIO/MCTBox_TF_DIO.c"
-Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_DIO/MCTBox_TF_DIO.c"
+Path Rel Path = "MCTBox_DIO/MCTBox_DIO.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_DIO/MCTBox_DIO.c"
 Exclude = False
 Compile Into Object File = False
 Project Flags = 0
@@ -209,6 +207,43 @@ File Type = "CSource"
 Res Id = 17
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "MCTBox_SwitchControl/MCTBox_SwitchControl.c"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_SwitchControl/MCTBox_SwitchCont"
+Path Line0002 = "rol.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_SwitchControl"
+
+[File 0018]
+File Type = "CSource"
+Res Id = 18
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_AIO/MCTBox_TF_AIO.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_AIO/MCTBox_TF_AIO.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_AIO"
+
+[File 0019]
+File Type = "CSource"
+Res Id = 19
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_DIO/MCTBox_TF_DIO.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_DIO/MCTBox_TF_DIO.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_DIO"
+
+[File 0020]
+File Type = "CSource"
+Res Id = 20
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/MCTBox_TF_SwitchControl.c"
 Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_SwitchControl/MCTBox_TF_SwitchC"
 Path Line0002 = "ontrol.c"
@@ -217,9 +252,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0018]
+[File 0021]
 File Type = "Library"
-Res Id = 18
+Res Id = 21
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../SUT Sequencer/BIN/Sequencer Kernel.lib"
@@ -228,9 +263,9 @@ Exclude = False
 Project Flags = 1048576
 Folder = "SUT_Sequenzer_Library"
 
-[File 0019]
+[File 0022]
 File Type = "Include"
-Res Id = 19
+Res Id = 22
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../SUT Sequencer/BIN/SUT Sequenzer Kernel API.h"
@@ -239,9 +274,9 @@ Exclude = False
 Project Flags = 0
 Folder = "SUT_Sequenzer_Library"
 
-[File 0020]
+[File 0023]
 File Type = "CSource"
-Res Id = 20
+Res Id = 23
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/Switch_Link_Node.c"
@@ -252,9 +287,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0021]
+[File 0024]
 File Type = "Include"
-Res Id = 21
+Res Id = 24
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/Switch_Link_Node.h"
@@ -264,9 +299,9 @@ Exclude = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0022]
+[File 0025]
 File Type = "CSource"
-Res Id = 22
+Res Id = 25
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "user_utility.c"
@@ -276,9 +311,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0023]
+[File 0026]
 File Type = "Include"
-Res Id = 23
+Res Id = 26
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "user_utility.h"

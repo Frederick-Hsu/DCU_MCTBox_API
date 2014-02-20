@@ -84,3 +84,23 @@ int ParseTokenList(char sARGIN_TokenListStr[], char *sARGOUT_TokenArray[], int *
 	}
 	return 0;
 }
+
+int RetrieveAdcVoltageValueFrom1unitOfAdcResponse(char s1unitOfAdcResponse[], double *dVoltValue, char *sError)
+{
+	int iResult = 0;
+	char sVoltageValue[64] = {0}, *sTemp = NULL;
+	double dVoltage = 0.00f;
+	
+	sTemp = strstr(s1unitOfAdcResponse, "VOLT ");
+	if (!sTemp)
+	{
+		sprintf(sError, "%s", "ADC value not found.");
+		return -10;
+	}
+	strncpy(sVoltageValue, sTemp+5, strlen(sTemp)-5);
+	dVoltage = atof(sVoltageValue);
+	
+	memcpy(dVoltValue, &dVoltage, sizeof(double));
+	
+	return iResult;
+}

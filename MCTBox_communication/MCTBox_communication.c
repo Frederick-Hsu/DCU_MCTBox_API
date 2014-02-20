@@ -44,7 +44,7 @@ int MCTBox_communication_RS232_Init(int iComPortNr, char *sARGOUT_ComError)
 	{
 		g_iMCTBox_ComPortNr = iComPortNr;
 	}
-	else
+	else							
 	{
 		iErrorCode = ReturnRS232Err();
 		strcpy(sError, GetRS232ErrorString(iErrorCode));
@@ -53,7 +53,7 @@ int MCTBox_communication_RS232_Init(int iComPortNr, char *sARGOUT_ComError)
 		return iErrorCode;
 	}		
 	
-	iResult = SetComTime(iComPortNr, 0.05);	// Set timeout = 50ms
+	iResult = SetComTime(iComPortNr, 0.02);	// Set timeout = 15ms
 	if (iResult <= 0)
 	{
 		iErrorCode = ReturnRS232Err();
@@ -110,7 +110,7 @@ int MCTBox_communication_RS232_Read(char *sARGOUT_ComResponse, char *sARGOUT_Com
 	int iResult = 0, iCnt = 0, iError = 0;
 	char sResponse[256] = "", sError[256] = "";
 	
-#if 0
+#if 1
 	do
 	{
 		iResult = ComRd(g_iMCTBox_ComPortNr, sResponse+iCnt, 1);
@@ -120,7 +120,7 @@ int MCTBox_communication_RS232_Read(char *sARGOUT_ComResponse, char *sARGOUT_Com
 	}
 	while (sResponse[iCnt-1] != 0);	// Check until the NULL terminate char.
 #else
-	iResult = ComRd(g_iMCTBox_ComPortNr, sResponse, 256);
+	iResult = ComRd(g_iMCTBox_ComPortNr, sResponse, 128);
 #endif
 	if (iResult < 0)
 	{  

@@ -52,17 +52,24 @@ int API MCTBoxAPI_SwitchModule_OpenCloseSwitch(BYTE 	ucSwitchBoardID,
 	}
 	
 	iError = MCTBoxAPI_Request(sSwitchCtrlCmd, sSwitchCtrlResponse);
+	if (strlen(sSwitchCtrlResponse) == 0)
+	{
+		sprintf(sErrorMesg, "%s", "MCTBox has not responded to the switch control.");
+		return -100;
+	}
 	if (iError)
 	{
 		iError = MCTBoxAPI_IsCommunicationError(sError);
 		sprintf(sErrorMesg, "%s", sError);
 		return iError;
 	}
+#if 0
 	iError = MCTBoxAPI_IsExecutionError(sError);
 	if (iError != 0)
 	{
 		sprintf(sErrorMesg, "%s", sError);
 	}
+#endif
 	
 	return iError;
 }
@@ -81,11 +88,13 @@ int API MCTBoxAPI_SwitchModule_ClearAllSwitches(BYTE ucSwitchBoardID, char *sErr
 		iError = MCTBoxAPI_IsCommunicationError(sError);
 		sprintf(sErrorMesg, "%s", sError);
 	}
+#if 0
 	iError = MCTBoxAPI_IsExecutionError(sError);
 	if (iError!= 0)
 	{
 		sprintf(sErrorMesg, "%s", sError);
 	}
+#endif
 	
 	return iError;
 }
@@ -104,11 +113,13 @@ int API MCTBoxAPI_SwitchModule_SetAllSwitches(BYTE ucSwitchBoardID, char *sError
 		iError = MCTBoxAPI_IsCommunicationError(sError);
 		sprintf(sErrorMesg, "%s", sError);
 	}
+#if 0
 	iError = MCTBoxAPI_IsExecutionError(sError);
 	if (iError!= 0)
 	{
 		sprintf(sErrorMesg, "%s", sError);
 	}
+#endif
 	
 	return iError;
 }
@@ -141,7 +152,9 @@ int API MCTBoxAPI_SwitchModule_OpenCloseMultiSwitches(PSwitch_t ptSwitch1, ...)
 	strcat(sSwitchCtrlCmd, "!");
 	
 	iError = MCTBoxAPI_Request(sSwitchCtrlCmd, sSwitchCtrlResponse);
+#if 0
 	iError = MCTBoxAPI_IsExecutionError(sError);
+#endif
 	
 	return iError;
 }

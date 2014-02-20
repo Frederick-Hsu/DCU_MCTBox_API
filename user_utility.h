@@ -31,6 +31,8 @@
 			//==============================================================================
 			// Functions prototype :
 			int ParseTokenList(char sARGIN_TokenListStr[], char *sARGOUT_TokenArray[], int *iNumOfToken);
+			
+			int RetrieveAdcVoltageValueFrom1unitOfAdcResponse(char s1unitOfAdcResponse[], double *dVoltValue, char *sError);
 
 	#ifdef __cplusplus
 	    }

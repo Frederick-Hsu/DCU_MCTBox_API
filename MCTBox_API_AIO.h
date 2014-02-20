@@ -47,7 +47,7 @@
 																   double 			*dARGOUT_AcquiredVoltageOfAdcChannel,	// unit : Volt
 																   char 			*sARGOUT_ErrorMesg);
 			
-			int API MCTBoxAPI_AIOModule_AcquireVoltagesOfAll8Channels(double *dARGOUT_VoltagesOfAll8Channels[8],		// 8 voltage values of 8 ADC channels, unit : Volt 
+			int API MCTBoxAPI_AIOModule_AcquireVoltagesOfAll8Channels(double dARGOUT_VoltagesOfAll8Channels[8],		// 8 voltage values of 8 ADC channels, unit : Volt 
 																	  char 	 *sARGOUT_ErrorMesg);
 			
 			int API MCTBoxAPI_AIOModule_AcquireCurrentOfAdcChannel(EAdcChannel_t 	eMCTBox_ADC_CurrentChannelNr,

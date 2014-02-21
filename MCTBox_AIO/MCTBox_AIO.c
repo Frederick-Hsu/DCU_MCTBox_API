@@ -85,7 +85,7 @@ static int FetchAdcValuesArray(char sResponseMesg[], char *sAdcValuesArray[])
 	char sTargetResponseStr[512] = {0}, sRestStr[512] = {0}, sAdcVoltage1Unit[64] = {0}, sTemp[512] = {0};
 	int iCnt = 0;
 	
-	if ( (uiPosOfDollar != 1) || (uiPosOfSigh != strlen(sResponseMesg)) )
+	if ( (uiPosOfDollar != 0) || (uiPosOfSigh != (strlen(sResponseMesg)-1)) )
 		return -1;
 	
 	strncpy(sTargetResponseStr, sResponseMesg+1, strlen(sResponseMesg)-2);
@@ -93,7 +93,7 @@ static int FetchAdcValuesArray(char sResponseMesg[], char *sAdcValuesArray[])
 	do
 	{   
 		uiPosOfColon = strcspn(sRestStr, ";");
-		strncpy(sAdcVoltage1Unit, sRestStr, uiPosOfColon-1);
+		strncpy(sAdcVoltage1Unit, sRestStr, uiPosOfColon);
 		
 		sAdcValuesArray[iCnt] = malloc(strlen(sAdcVoltage1Unit)+1);
 		strcpy(sAdcValuesArray[iCnt], sAdcVoltage1Unit);
@@ -106,12 +106,13 @@ static int FetchAdcValuesArray(char sResponseMesg[], char *sAdcValuesArray[])
 		memset(sTemp, 0, sizeof(sTemp));
 	}
 	while (strstr(sRestStr, ";"));
+	sAdcValuesArray[iCnt] = malloc(strlen(sRestStr)+1);
 	strcpy(sAdcValuesArray[iCnt], sRestStr);
 	
 	return 0;
 }
 
-int API MCTBoxAPI_AIOModule_AcquireVoltagesOfAll8Channels(double *dARGOUT_VoltagesOfAll8Channels[8],		// 8 voltage values of 8 ADC channels, unit : Volt 
+int API MCTBoxAPI_AIOModule_AcquireVoltagesOfAll8Channels(double dARGOUT_VoltagesOfAll8Channels[8],		// 8 voltage values of 8 ADC channels, unit : Volt 
 														  char 	 *sARGOUT_ErrorMesg)
 {
 	int iResult = 0;
@@ -141,7 +142,7 @@ int API MCTBoxAPI_AIOModule_AcquireVoltagesOfAll8Channels(double *dARGOUT_Voltag
 			return iResult;
 		}
 		
-		memcpy(dARGOUT_VoltagesOfAll8Channels[i], &(dVoltageArray[i]), sizeof(double));
+		memcpy(dARGOUT_VoltagesOfAll8Channels+i, &(dVoltageArray[i]), sizeof(double));
 	}	   
 	
 	return iResult;

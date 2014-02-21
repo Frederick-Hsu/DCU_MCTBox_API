@@ -157,7 +157,7 @@ int API MCTBoxAPI_AIOModule_AcquireCurrentOfAdcChannel(EAdcChannel_t 	eMCTBox_AD
 	double dCurrentValue = 0.00f;
 	
 	if ((eMCTBox_ADC_CurrentChannelNr < MCTBox_ADC_CH1) || 
-		(eMCTBox_ADC_CurrentChannelNr > MCTBox_ADC_CH1) )
+		(eMCTBox_ADC_CurrentChannelNr > MCTBox_ADC_CH8) )
 		return -1;
 	
 	sprintf(sCmd, "$ADC %d:CURR %.04f?!", eMCTBox_ADC_CurrentChannelNr, fShuntResistorInOhm);

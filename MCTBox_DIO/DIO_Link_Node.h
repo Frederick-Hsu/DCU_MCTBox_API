@@ -57,12 +57,12 @@
 			//==============================================================================
 			// Global functions
 			void AssignDioPortNode(PDioPortNode_t 	lpDioPortNode,
-								   char 			sDoutPortTokenName[],  
-								   char 			sDoutPortDescription[],
-								   char 			sDoutPortConnector[],
-								   char 			sDoutPortDeviceName[],
-								   BYTE 			bytDoutBoardID,
-								   UINT 			uiDoutPortChannelNr);
+								   char 			sDioPortTokenName[],  
+								   char 			sDioPortDescription[],
+								   char 			sDioPortConnector[],
+								   char 			sDioPortDeviceName[],
+								   BYTE 			bytDioBoardID,
+								   UINT 			uiDioPortChannelNr);
 
 	#ifdef __cplusplus
 	    }

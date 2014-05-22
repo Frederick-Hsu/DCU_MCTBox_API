@@ -67,8 +67,7 @@ int API MCTBoxAPI_DIOModule_SetDoutPortHighLow(BYTE 	ucDoutBoardID,
 	return iResult;
 }
 
-int API MCTBoxAPI_DIOModule_QueryDinPortState(BYTE 		ucDinBoardID,
-											  UINT 		uiDinPortNr,
+int API MCTBoxAPI_DIOModule_QueryDinPortState(UINT 		uiDinPortNr,
 											  EState 	*eDinPortState,
 											  char 		*sErrorMesg)
 {
@@ -127,8 +126,7 @@ int API MCTBoxAPI_DIOModule_QueryDinPortState(BYTE 		ucDinBoardID,
 	return iResult;
 }
 
-int API MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(BYTE 	ucDinBoardID,
-														 EState eDin24PortsState[24],	// 24 ports' state
+int API MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(EState eDin24PortsState[24],	// 24 ports' state
 														 char 	*sErrorMesg)
 {
 	int iResult = 0;

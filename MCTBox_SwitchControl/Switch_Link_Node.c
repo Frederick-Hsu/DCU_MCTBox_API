@@ -128,13 +128,14 @@ int API MCTBoxAPI_SwitchModule_SwitchDeleteList(void)
 {
 	PSwitchLNode_t pTemp = pSwitchNode;
 	
-	while (pTemp != NULL)
+	while (NULL != pTemp)
 	{					
 		pTemp = pTemp->next;	// Stage the new node
 		free(pSwitchNode);		// Destroy current node
 		pSwitchNode = pTemp;	// Move to next node
 	}
-	free(pSwitchNode);			// Destroy the tail node
+	if (NULL != pSwitchNode)
+		free(pSwitchNode);			// Destroy the tail node
 	
 	return 0;
 }

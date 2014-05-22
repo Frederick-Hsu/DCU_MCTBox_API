@@ -19,7 +19,6 @@
 			//==============================================================================
 			// Include files
 			#include "MCTBox_API_import_export.h"
-			#include "MCTBox_API_SwitchControl.h"
 
 			//==============================================================================
 			// Constants
@@ -37,13 +36,11 @@
 														   EState 	eDoutPortState,	// HIGH=1,  LOW=0
 														   char 	*sErrorMesg);
 			
-			int API MCTBoxAPI_DIOModule_QueryDinPortState(BYTE 		ucDinBoardID,	// Board ID range : [0x00, 0xFF]
-														  UINT 		uiDinPortNr,	// Port number : [1, 24]
+			int API MCTBoxAPI_DIOModule_QueryDinPortState(UINT 		uiDinPortNr,	// Port number : [1, 24]
 														  EState 	*eDinPortState,	// Port state returned
 														  char 		*sErrorMesg);
 			
-			int API MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(BYTE 	ucDinBoardID,
-																	 EState eDin24PortsState[24],	// 24 ports' state
+			int API MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(EState eDin24PortsState[24],	// 24 ports' state
 																	 char 	*sErrorMesg);
 			
 			int API MCTBoxAPI_DIOModule_DoutPortListAddEntry(char sDoutPortTokenName[],
@@ -57,7 +54,7 @@
 															char sDinPortDescription[],
 															char sDinPortConnector[],
 															char sDinPortDeviceName[],
-															BYTE bytDinBoardID,				// Board ID range : [0x00, 0xFF]
+															BYTE bytDinBoardID,				// this board ID is not used.
 															UINT uiDinPortChannelNr);		// Port number range : [1, 24]
 			
 			int API MCTBoxAPI_DIOModule_DioPortDeleteList(void);

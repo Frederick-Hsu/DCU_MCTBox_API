@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 26
+Number of Files = 29
 Target Type = "Dynamic Link Library"
 Flags = 2064
 Copied From Locked InstrDrv Directory = False
@@ -137,8 +137,8 @@ File Type = "Include"
 Res Id = 11
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "MCTBox_API_import_export.h"
-Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_import_export.h"
+Path Rel Path = "MCTBox_API_FIN.h"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_FIN.h"
 Exclude = False
 Project Flags = 0
 Folder = "Include Files"
@@ -148,8 +148,8 @@ File Type = "Include"
 Res Id = 12
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "MCTBox_API_SwitchControl.h"
-Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_SwitchControl.h"
+Path Rel Path = "MCTBox_API_import_export.h"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_import_export.h"
 Exclude = False
 Project Flags = 0
 Folder = "Include Files"
@@ -159,15 +159,26 @@ File Type = "Include"
 Res Id = 13
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "MCTBox_API_SwitchControl.h"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_SwitchControl.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+
+[File 0014]
+File Type = "Include"
+Res Id = 14
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "MCTBox_API_Version.h"
 Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_Version.h"
 Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0014]
+[File 0015]
 File Type = "CSource"
-Res Id = 14
+Res Id = 15
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_communication/MCTBox_communication.c"
@@ -178,9 +189,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_communication"
 
-[File 0015]
+[File 0016]
 File Type = "Include"
-Res Id = 15
+Res Id = 16
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_communication/MCTBox_communication.h"
@@ -190,9 +201,9 @@ Exclude = False
 Project Flags = 0
 Folder = "MCTBox_communication"
 
-[File 0016]
+[File 0017]
 File Type = "CSource"
-Res Id = 16
+Res Id = 17
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_DIO/MCTBox_DIO.c"
@@ -202,9 +213,21 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_DIO"
 
-[File 0017]
+[File 0018]
 File Type = "CSource"
-Res Id = 17
+Res Id = 18
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_FIN/MCTBox_FIN.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_FIN/MCTBox_FIN.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_FIN"
+
+[File 0019]
+File Type = "CSource"
+Res Id = 19
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/MCTBox_SwitchControl.c"
@@ -215,9 +238,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0018]
+[File 0020]
 File Type = "CSource"
-Res Id = 18
+Res Id = 20
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_AIO/MCTBox_TF_AIO.c"
@@ -227,9 +250,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_AIO"
 
-[File 0019]
+[File 0021]
 File Type = "CSource"
-Res Id = 19
+Res Id = 21
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_DIO/MCTBox_TF_DIO.c"
@@ -239,9 +262,21 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_DIO"
 
-[File 0020]
+[File 0022]
 File Type = "CSource"
-Res Id = 20
+Res Id = 22
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_FIN/MCTBox_TF_FIN.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_FIN/MCTBox_TF_FIN.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "MCTBox_FIN"
+
+[File 0023]
+File Type = "CSource"
+Res Id = 23
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/MCTBox_TF_SwitchControl.c"
@@ -252,9 +287,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0021]
+[File 0024]
 File Type = "Library"
-Res Id = 21
+Res Id = 24
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../SUT Sequencer/BIN/Sequencer Kernel.lib"
@@ -263,9 +298,9 @@ Exclude = False
 Project Flags = 1048576
 Folder = "SUT_Sequenzer_Library"
 
-[File 0022]
+[File 0025]
 File Type = "Include"
-Res Id = 22
+Res Id = 25
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../SUT Sequencer/BIN/SUT Sequenzer Kernel API.h"
@@ -274,9 +309,9 @@ Exclude = False
 Project Flags = 0
 Folder = "SUT_Sequenzer_Library"
 
-[File 0023]
+[File 0026]
 File Type = "CSource"
-Res Id = 23
+Res Id = 26
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/Switch_Link_Node.c"
@@ -287,9 +322,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0024]
+[File 0027]
 File Type = "Include"
-Res Id = 24
+Res Id = 27
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_SwitchControl/Switch_Link_Node.h"
@@ -299,9 +334,9 @@ Exclude = False
 Project Flags = 0
 Folder = "MCTBox_SwitchControl"
 
-[File 0025]
+[File 0028]
 File Type = "CSource"
-Res Id = 25
+Res Id = 28
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "user_utility.c"
@@ -311,9 +346,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0026]
+[File 0029]
 File Type = "Include"
-Res Id = 26
+Res Id = 29
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "user_utility.h"
@@ -332,6 +367,7 @@ Folder 3 = "MCTBox_DIO"
 Folder 4 = "MCTBox_SwitchControl"
 Folder 5 = "MCTBox_AIO"
 Folder 6 = "SUT_Sequenzer_Library"
+Folder 7 = "MCTBox_FIN"
 
 [Custom Build Configs]
 Num Custom Build Configs = 0
@@ -457,8 +493,9 @@ DLL Exports = "Include File And Marked Symbols"
 Export File1 = "MCTBox_API.h"
 Export File2 = "MCTBox_API_AIO.h"
 Export File3 = "MCTBox_API_DIO.h"
-Export File4 = "MCTBox_API_import_export.h"
-Export File5 = "MCTBox_API_SwitchControl.h"
+Export File4 = "MCTBox_API_FIN.h"
+Export File5 = "MCTBox_API_import_export.h"
+Export File6 = "MCTBox_API_SwitchControl.h"
 Register ActiveX Server = False
 Numeric File Version = "0,0,0,1"
 Numeric Prod Version = "0,0,0,1"
@@ -654,8 +691,9 @@ DLL Exports = "Include File And Marked Symbols"
 Export File1 = "MCTBox_API.h"
 Export File2 = "MCTBox_API_AIO.h"
 Export File3 = "MCTBox_API_DIO.h"
-Export File4 = "MCTBox_API_import_export.h"
-Export File5 = "MCTBox_API_SwitchControl.h"
+Export File4 = "MCTBox_API_FIN.h"
+Export File5 = "MCTBox_API_import_export.h"
+Export File6 = "MCTBox_API_SwitchControl.h"
 DLL Import Library Choice = "Gen Lib For Current Mode"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False

@@ -25,23 +25,6 @@
 
 			//==============================================================================
 			// Types
-			typedef unsigned int UINT;
-			typedef unsigned char BYTE;
-			typedef unsigned char UCHAR;
-			
-			typedef enum State
-			{
-				OFF = 0,
-				OPEN = 0,
-				LOW = 0,
-				
-				ON = 1,
-				CLOSE = 1,
-				HIGH = 1
-				
-			}
-			EState;
-			
 			typedef struct Switch
 			{
 				BYTE ucSwitchBoardID;

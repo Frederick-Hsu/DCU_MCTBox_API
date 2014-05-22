@@ -25,13 +25,13 @@
 
 //==============================================================================
 // Static global variables
-static PDioPortNode_t pDioPortNode = NULL;
 
 //==============================================================================
 // Static functions
 
 //==============================================================================
 // Global variables
+PDioPortNode_t pDioPortNode = NULL;     
 
 //==============================================================================
 // Global functions
@@ -111,37 +111,38 @@ int API MCTBoxAPI_DIOModule_DioPortDeleteList(void)
 	int iResult = 0;
 	PDioPortNode_t pTemp = pDioPortNode;
 	
-	while (pTemp != NULL)
+	while (NULL != pTemp)
 	{
 		pTemp = pTemp->next;
 		free(pDioPortNode);
 		pDioPortNode = pTemp;
 	}
-	free(pDioPortNode);
+	if (NULL != pDioPortNode)	// To avoid duplicate destroying the tail node.
+		free(pDioPortNode);
 	
 	return iResult;
 }
 
-void AssignDioPortNode(PDioPortNode_t 	lpDioPortNode,					
-					   char 			sDoutPortTokenName[],  
-					   char 			sDoutPortDescription[],
-					   char 			sDoutPortConnector[],
-					   char 			sDoutPortDeviceName[],
-					   BYTE 			bytDoutBoardID,
-					   UINT 			uiDoutPortChannelNr)
+void AssignDioPortNode(PDioPortNode_t 	lpDioPortNode,
+					   char 			sDioPortTokenName[],  
+					   char 			sDioPortDescription[],
+					   char 			sDioPortConnector[],
+					   char 			sDioPortDeviceName[],
+					   BYTE 			bytDioBoardID,
+					   UINT 			uiDioPortChannelNr)
 {
-	lpDioPortNode->stDioPortToken.sDioPortTokenName 	= (char *)malloc(sizeof(char)*(strlen(sDoutPortTokenName)+1));
-	lpDioPortNode->stDioPortToken.sDioPortDescription 	= (char *)malloc(sizeof(char)*(strlen(sDoutPortDescription)+1));
-	lpDioPortNode->stDioPortToken.sDioPortConnector 	= (char *)malloc(sizeof(char)*(strlen(sDoutPortConnector)+1));
-	lpDioPortNode->stDioPortToken.sDioPortDeviceName 	= (char *)malloc(sizeof(char)*(strlen(sDoutPortDeviceName)+1));
+	lpDioPortNode->stDioPortToken.sDioPortTokenName 	= (char *)malloc(sizeof(char)*(strlen(sDioPortTokenName)+1));
+	lpDioPortNode->stDioPortToken.sDioPortDescription 	= (char *)malloc(sizeof(char)*(strlen(sDioPortDescription)+1));
+	lpDioPortNode->stDioPortToken.sDioPortConnector 	= (char *)malloc(sizeof(char)*(strlen(sDioPortConnector)+1));
+	lpDioPortNode->stDioPortToken.sDioPortDeviceName 	= (char *)malloc(sizeof(char)*(strlen(sDioPortDeviceName)+1));
 	
-	sprintf(lpDioPortNode->stDioPortToken.sDioPortTokenName, 	"%s", sDoutPortTokenName);
-	sprintf(lpDioPortNode->stDioPortToken.sDioPortDescription, 	"%s", sDoutPortDescription);
-	sprintf(lpDioPortNode->stDioPortToken.sDioPortConnector, 	"%s", sDoutPortConnector);
-	sprintf(lpDioPortNode->stDioPortToken.sDioPortDeviceName, 	"%s", sDoutPortDeviceName);
+	sprintf(lpDioPortNode->stDioPortToken.sDioPortTokenName, 	"%s", sDioPortTokenName);
+	sprintf(lpDioPortNode->stDioPortToken.sDioPortDescription, 	"%s", sDioPortDescription);
+	sprintf(lpDioPortNode->stDioPortToken.sDioPortConnector, 	"%s", sDioPortConnector);
+	sprintf(lpDioPortNode->stDioPortToken.sDioPortDeviceName, 	"%s", sDioPortDeviceName);
 	
-	lpDioPortNode->stDioPortPhyAddr.ucDioBoardID 		= bytDoutBoardID;
-	lpDioPortNode->stDioPortPhyAddr.uiDioPortNr			= uiDoutPortChannelNr; 
+	lpDioPortNode->stDioPortPhyAddr.ucDioBoardID 		= bytDioBoardID;
+	lpDioPortNode->stDioPortPhyAddr.uiDioPortNr			= uiDioPortChannelNr; 
 	
 	return;
 }
@@ -189,8 +190,7 @@ int API MCTBoxAPI_DIOModule_QueryDinPortStateByToken(char sDinPortToken[], EStat
 		if (!strcmp(pTemp->stDioPortToken.sDioPortTokenName, sDinPortToken))
 		{
 			iHitTargetFlag = 1;
-			iResult = MCTBoxAPI_DIOModule_QueryDinPortState(pTemp->stDioPortPhyAddr.ucDioBoardID,
-															pTemp->stDioPortPhyAddr.uiDioPortNr,
+			iResult = MCTBoxAPI_DIOModule_QueryDinPortState(pTemp->stDioPortPhyAddr.uiDioPortNr,
 															eDinPortState,
 															sError);
 			if (iResult)

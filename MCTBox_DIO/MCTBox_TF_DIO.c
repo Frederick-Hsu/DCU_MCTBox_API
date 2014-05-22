@@ -129,7 +129,7 @@ void API MCTBoxAPI_TF_DIOModule_GetDinPortState(int hThisStep)
 	TEST_CHECK_CBREAK;
 	TEST_STEP_DELAY; 
 	
-	iError = MCTBoxAPI_DIOModule_QueryDinPortState(iDinBoardID, iDinPortNr, &eDinPortState, sError);
+	iError = MCTBoxAPI_DIOModule_QueryDinPortState(iDinPortNr, &eDinPortState, sError);
 	if (iError)
 	{
 		TEST_RETURN_TESTERERROR(iError, sError);
@@ -165,7 +165,7 @@ void API MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStates(int hThisStep)
 	TEST_CHECK_CBREAK;
 	TEST_STEP_DELAY;
 	
-	iError = MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(ucDinBoardID, eDin24PortsStateArray, sError);
+	iError = MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(eDin24PortsStateArray, sError);
 	if (iError)
 	{
 		TEST_RETURN_TESTERERROR(iError, sError);

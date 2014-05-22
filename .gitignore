@@ -2,5 +2,8 @@
 *.exe
 *.cdb
 *.cws
+*.dll
+*.lib
+
 cvibuild*/
 /.project

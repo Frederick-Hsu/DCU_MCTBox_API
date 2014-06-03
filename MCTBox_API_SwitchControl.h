@@ -38,7 +38,7 @@
 
 			//==============================================================================
 			// Functions protype :
-			int API MCTBoxAPI_SwitchModule_OpenCloseSwitch(BYTE 	ucSwitchBoardID,		// Board ID range : [0x00, 0xFF] 
+			int API MCTBoxAPI_SwitchModule_OpenCloseSwitch(BYTE 	ucSwitchBoardID,		// Board ID range : [0x01, 0xFF] 
 														   UINT 	uiSwitchChannelNr, 		// Channel number range: [1, 24]
 														   EState 	eSwitchState,			// 0=Switch OFF; 1=Switch ON
 														   char 	*sErrorMesg);

@@ -31,7 +31,7 @@
 
 			//==============================================================================
 			// Functions implementation :
-			int API MCTBoxAPI_DIOModule_SetDoutPortHighLow(BYTE 	ucDoutBoardID,	// Board ID range : [0x00, 0xFF]
+			int API MCTBoxAPI_DIOModule_SetDoutPortHighLow(BYTE 	ucDoutBoardID,	// Board ID range : [0x01, 0xFF]
 														   UINT 	uiDoutPortNr,	// Port number range : [1, 24]
 														   EState 	eDoutPortState,	// HIGH=1,  LOW=0
 														   char 	*sErrorMesg);
@@ -47,14 +47,14 @@
 															 char sDoutPortDescription[],
 															 char sDoutPortConnector[],
 															 char sDoutPortDeviceName[],
-															 BYTE bytDoutBoardID,			// Board ID range : [0x00, 0xFF]
+															 BYTE bytDoutBoardID,			// Board ID range : [0x01, 0xFF]
 															 UINT uiDoutPortChannelNr);		// Port number range : [1, 24]
 			
 			int API MCTBoxAPI_DIOModule_DinPortListAddEntry(char sDinPortTokenName[],
 															char sDinPortDescription[],
 															char sDinPortConnector[],
 															char sDinPortDeviceName[],
-															BYTE bytDinBoardID,				// this board ID is not used.
+															BYTE bytDinBoardID,				// this board ID is not used. Default is 0x00
 															UINT uiDinPortChannelNr);		// Port number range : [1, 24]
 			
 			int API MCTBoxAPI_DIOModule_DioPortDeleteList(void);

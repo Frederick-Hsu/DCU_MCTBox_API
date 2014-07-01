@@ -17,10 +17,12 @@
 /*****************************************************************/
 
 	#if (UPGRADE_VERSION == YES)
-		#define CURRENT_VERSION			"MCTBpx_API Version : V0.9.3.1    Build-date : 2014-06-01"
+		#define CURRENT_VERSION			"MCTBox_API Version : V1.0.1.1    Build-date : 2014-07-01"
+		// #define CURRENT_VERSION		"MCTBox_API Version : V0.9.3.1    Build-date : 2014-06-01"
 		// #define CURRENT_VERSION		"MCTBox_API Version : V0.0.0.1    Build-date : 2013-11-25"
 	#else
-		#define PREVIOUS_VERSION		"MCTBox_API Version : V0.0.0.1    Build-date : 2013-11-25"
+		#define PREVIOUS_VERSION		"MCTBox_API Version : V0.9.3.1    Build-date : 2014-06-01"
+		// #define PREVIOUS_VERSION		"MCTBox_API Version : V0.0.0.1    Build-date : 2013-11-25"
 		// #define PREVIOUS_VERSION		"MCTBox_API Version : V0.0.0.0"
 	#endif	/*  UPGRADE_VERSION  */
 

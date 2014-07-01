@@ -16,8 +16,8 @@
 #include <utility.h>
 
 #include "MCTBox_API.h"
-#include "MCTBox_API_Version.h"   
 #include "MCTBox_communication.h" 
+#include "MCTBox_API_Version.h" 
 
 #include "SUT Sequenzer Kernel API.h"
 

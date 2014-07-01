@@ -4,6 +4,17 @@
 *.cws
 *.dll
 *.lib
+*.xml
+*.msi
+*.cab
+*.rtf
+*.pmf
+*.id
+*.cds
+*.mst
+*setup.ini
+*License.txt
+*Notice.txt
 
 cvibuild*/
 cvicomments*/

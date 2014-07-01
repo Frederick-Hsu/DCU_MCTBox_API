@@ -10,7 +10,7 @@
 *.rtf
 *.pmf
 *.id
-*.cds
+
 *.mst
 *setup.ini
 *License.txt

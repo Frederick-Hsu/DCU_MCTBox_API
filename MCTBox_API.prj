@@ -439,6 +439,7 @@ Use Dflt Import Lib Base Name = True
 Where to Copy DLL = "Custom directory"
 Custom Directory to Copy DLL Is Rel = False
 <<<<<<< HEAD
+<<<<<<< HEAD
 Custom Directory to Copy DLL = "/c/SUT Sequencer/SharedSources/DLL"
 =======
 Custom Directory to Copy DLL = "/c/SUT Sequencer/BIN"
@@ -447,6 +448,13 @@ Generate Source Documentation = "None"
 Runtime Support = "Full Runtime Support"
 Embed Project .UIRs = True
 Generate Map File = False
+=======
+Custom Directory to Copy DLL = ""
+Generate Source Documentation = "HTML"
+Runtime Support = "Full Runtime Support"
+Embed Project .UIRs = False
+Generate Map File = True
+>>>>>>> master
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File And Marked Symbols"
@@ -455,32 +463,43 @@ Export File2 = "MCTBox_API_AIO.h"
 Export File3 = "MCTBox_API_DIO.h"
 Export File4 = "MCTBox_API_FIN.h"
 Export File5 = "MCTBox_API_import_export.h"
+<<<<<<< HEAD
 Export File6 = "MCTBox_API_PWM.h"
 Export File7 = "MCTBox_API_SwitchControl.h"
 Register ActiveX Server = False
 Numeric File Version = "1,0,1,1"
 Numeric Prod Version = "1,0,1,1"
+=======
+Export File6 = "MCTBox_API_SwitchControl.h"
+Register ActiveX Server = False
+Numeric File Version = "0,9,3,1"
+Numeric Prod Version = "0,9,3,1"
+>>>>>>> master
 Comments = ""
 Comments Ex = ""
 Company Name = ""
 Company Name Ex = "%company"
+<<<<<<< HEAD
 File Description = "MCTBox_API (Debug x86)"
 File Description Ex = "%application (%rel_dbg %arch)"
 File Version = "1.0"
+=======
+File Version = "0.9"
+>>>>>>> master
 File Version Ex = "%f1.%f2"
-Internal Name = "MCTBox_API"
-Internal Name Ex = "%basename"
 Legal Copyright = "Copyright ©  2014"
 Legal Copyright Ex = "Copyright © %company %Y"
 Legal Trademarks = ""
 Legal Trademarks Ex = ""
-Original Filename = "MCTBox_API.dll"
-Original Filename Ex = "%filename"
 Private Build = ""
 Private Build Ex = ""
+<<<<<<< HEAD
 Product Name = " MCTBox_API"
 Product Name Ex = "%company %application"
 Product Version = "1.0"
+=======
+Product Version = "0.9"
+>>>>>>> master
 Product Version Ex = "%p1.%p2"
 Special Build = ""
 Special Build Ex = ""
@@ -530,7 +549,7 @@ Custom Directory to Copy DLL = "/c/SUT Sequencer/BIN"
 Generate Source Documentation = "None"
 Runtime Support = "Full Runtime Support"
 Embed Project .UIRs = False
-Generate Map File = False
+Generate Map File = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File And Marked Symbols"
@@ -542,29 +561,38 @@ Export File5 = "MCTBox_API_import_export.h"
 Export File6 = "MCTBox_API_PWM.h"
 Export File7 = "MCTBox_API_SwitchControl.h"
 Register ActiveX Server = False
+<<<<<<< HEAD
 Numeric File Version = "1,0,1,1"
 Numeric Prod Version = "1,0,1,1"
+=======
+Numeric File Version = "0,9,3,1"
+Numeric Prod Version = "0,9,3,1"
+>>>>>>> master
 Comments = ""
 Comments Ex = ""
 Company Name = ""
 Company Name Ex = "%company"
+<<<<<<< HEAD
 File Description = "MCTBox_API (Release x86)"
 File Description Ex = "%application (%rel_dbg %arch)"
 File Version = "1.0"
+=======
+File Version = "0.9"
+>>>>>>> master
 File Version Ex = "%f1.%f2"
-Internal Name = "MCTBox_API"
-Internal Name Ex = "%basename"
 Legal Copyright = "Copyright ©  2014"
 Legal Copyright Ex = "Copyright © %company %Y"
 Legal Trademarks = ""
 Legal Trademarks Ex = ""
-Original Filename = "MCTBox_API.dll"
-Original Filename Ex = "%filename"
 Private Build = ""
 Private Build Ex = ""
+<<<<<<< HEAD
 Product Name = " MCTBox_API"
 Product Name Ex = "%company %application"
 Product Version = "1.0"
+=======
+Product Version = "0.9"
+>>>>>>> master
 Product Version Ex = "%p1.%p2"
 Special Build = ""
 Special Build Ex = ""
@@ -610,7 +638,7 @@ Custom Directory to Copy DLL = ""
 Generate Source Documentation = "None"
 Runtime Support = "Full Runtime Support"
 Embed Project .UIRs = False
-Generate Map File = False
+Generate Map File = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
@@ -675,7 +703,7 @@ Custom Directory to Copy DLL = ""
 Generate Source Documentation = "None"
 Runtime Support = "Full Runtime Support"
 Embed Project .UIRs = False
-Generate Map File = False
+Generate Map File = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
@@ -752,29 +780,38 @@ Executable File_Release64 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_AP
 Icon File Is Rel = False
 Icon File = ""
 Application Title = ""
+<<<<<<< HEAD
 Numeric File Version = "1,0,1,1"
 Numeric Prod Version = "1,0,1,1"
+=======
+Numeric File Version = "0,9,3,1"
+Numeric Prod Version = "0,9,3,1"
+>>>>>>> master
 Comments = ""
 Comments Ex = ""
 Company Name = ""
 Company Name Ex = "%company"
+<<<<<<< HEAD
 File Description = "MCTBox_API (Release x86)"
 File Description Ex = "%application (%rel_dbg %arch)"
 File Version = "1.0"
+=======
+File Version = "0.9"
+>>>>>>> master
 File Version Ex = "%f1.%f2"
-Internal Name = "MCTBox_API"
-Internal Name Ex = "%basename"
 Legal Copyright = "Copyright ©  2014"
 Legal Copyright Ex = "Copyright © %company %Y"
 Legal Trademarks = ""
 Legal Trademarks Ex = ""
-Original Filename = "MCTBox_API.dll"
-Original Filename Ex = "%filename"
 Private Build = ""
 Private Build Ex = ""
+<<<<<<< HEAD
 Product Name = " MCTBox_API"
 Product Name Ex = "%company %application"
 Product Version = "1.0"
+=======
+Product Version = "0.9"
+>>>>>>> master
 Product Version Ex = "%p1.%p2"
 Special Build = ""
 Special Build Ex = ""
@@ -807,7 +844,7 @@ Type Lib Guid = ""
 Runtime Support = "Full Runtime Support"
 Instrument Driver Support Only = False
 Embed Project .UIRs = False
-Generate Map File = False
+Generate Map File = True
 
 [External Compiler Support]
 UIR Callbacks File Option = 0

@@ -53,13 +53,15 @@
 																 EState *eFinPortState,
 																 char 	*sErrorMesg);
 			
-			//==============================================================================
-			// Test Functions implementation :
-			void API MCTBoxAPI_TF_FINModule_QueryFinPortState(int hThisStep);
-			void API MCTBoxAPI_TF_FINModule_ParallelQueryFinBoard24PortsState(int hThisStep);
-			void API MCTBoxAPI_TF_FINModule_QueryFinPortStateByToken(int hThisStep);
+			#if defined (SUT_SEQUENZER)
+				//==============================================================================
+				// Test Functions implementation :
+				void API MCTBoxAPI_TF_FINModule_QueryFinPortState(int hThisStep);
+				void API MCTBoxAPI_TF_FINModule_ParallelQueryFinBoard24PortsState(int hThisStep);
+				void API MCTBoxAPI_TF_FINModule_QueryFinPortStateByToken(int hThisStep);
 			
-			void API MCTBoxAPI_RegisterFINModuleTFSteps(void);
+				void API MCTBoxAPI_RegisterFINModuleTFSteps(void);
+			#endif
 	
 	#ifdef __cplusplus
 	    }

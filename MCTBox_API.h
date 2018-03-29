@@ -47,18 +47,20 @@
 			void API MCTBoxAPI_FirmwareVersion(char *sMCTBox_FirmwareVersionInfo);
 			
 			
-			//==============================================================================
-			// Test Functions prototype :
-			void API MCTBoxAPI_TF_Init(int hThisStep);
-			void API MCTBoxAPI_TF_Exit(int hThisStep);
-			void API MCTBoxAPI_TF_SayHello2MCTBox(int hThisStep);
-			void API MCTBoxAPI_TF_Transmit(int hThisStep);
-			void API MCTBoxAPI_TF_Receive(int hThisStep);
-			void API MCTBoxAPI_TF_Request(int hThisStep);
-			void API MCTBoxAPI_TF_IsExecutionError(int hThisStep);
-			void API MCTBoxAPI_TF_FirmwareVersion(int hThisStep);
+			#if defined (SUT_SEQUENZER)
+				//==============================================================================
+				// Test Functions prototype :
+				void API MCTBoxAPI_TF_Init(int hThisStep);
+				void API MCTBoxAPI_TF_Exit(int hThisStep);
+				void API MCTBoxAPI_TF_SayHello2MCTBox(int hThisStep);
+				void API MCTBoxAPI_TF_Transmit(int hThisStep);
+				void API MCTBoxAPI_TF_Receive(int hThisStep);
+				void API MCTBoxAPI_TF_Request(int hThisStep);
+				void API MCTBoxAPI_TF_IsExecutionError(int hThisStep);
+				void API MCTBoxAPI_TF_FirmwareVersion(int hThisStep);
 			
-			void API MCTBoxAPI_RegisterCommonTFSteps(void);
+				void API MCTBoxAPI_RegisterCommonTFSteps(void);
+			#endif
 			
 	#ifdef __cplusplus
 	    }

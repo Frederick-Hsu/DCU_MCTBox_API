@@ -68,15 +68,17 @@
 																 char 		*sErrorMesg);
 			
 			
-			//==============================================================================
-			// Test Functions implementation :
-			void API MCTBOxAPI_TF_DIOModule_SetDoutPortHighLow(int hThisStep);
-			void API MCTBoxAPI_TF_DIOModule_GetDinPortState(int hThisStep);
-			void API MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStates(int hThisStep);
-			void API MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokens(int hThisStep);
-			void API MCTBoxAPI_TF_DIOModule_GetDinPortStateByToken(int hThisStep);
+			#if defined (SUT_SEQUENZER)
+				//==============================================================================
+				// Test Functions implementation :
+				void API MCTBOxAPI_TF_DIOModule_SetDoutPortHighLow(int hThisStep);
+				void API MCTBoxAPI_TF_DIOModule_GetDinPortState(int hThisStep);
+				void API MCTBoxAPI_TF_DIOModule_ParallelGetDin24PortsStates(int hThisStep);
+				void API MCTBoxAPI_TF_DIOModule_SetDoutPortHighLowByTokens(int hThisStep);
+				void API MCTBoxAPI_TF_DIOModule_GetDinPortStateByToken(int hThisStep);
 			
-			void API MCTBoxAPI_RegisterDIOModuleTFSteps(void);
+				void API MCTBoxAPI_RegisterDIOModuleTFSteps(void);
+			#endif
 
 	#ifdef __cplusplus
 	    }

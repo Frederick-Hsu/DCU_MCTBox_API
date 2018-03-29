@@ -72,15 +72,17 @@
 														   double 	*dARGOUT_CurrentInA,
 														   char		*sARGOUT_ErrorMesg);
 			
-			//==============================================================================
-			// Test Functions prototype :
-			void API MCTBoxAPI_TF_AIOModule_AcquireVoltageOfAdcChannel(int hThisStep);
-			void API MCTBoxAPI_TF_AIOMpdule_AcquireCurrentOfAdcChannel(int hThisStep);
-			void API MCTBoxAPI_TF_AIOModule_MeasVoltageByToken(int hThisStep);
-			void API MCTBoxAPI_TF_AIOModule_MeasCurrentByToken(int hThisStep);
+			#if defined (SUT_SEQUENZER)
+				//==============================================================================
+				// Test Functions prototype :
+				void API MCTBoxAPI_TF_AIOModule_AcquireVoltageOfAdcChannel(int hThisStep);
+				void API MCTBoxAPI_TF_AIOMpdule_AcquireCurrentOfAdcChannel(int hThisStep);
+				void API MCTBoxAPI_TF_AIOModule_MeasVoltageByToken(int hThisStep);
+				void API MCTBoxAPI_TF_AIOModule_MeasCurrentByToken(int hThisStep);
 			
-			void API MCTBoxAPI_RegisterAIOModuleTFSteps(void);
-
+				void API MCTBoxAPI_RegisterAIOModuleTFSteps(void);
+			#endif
+				
 	#ifdef __cplusplus
 	    }
 	#endif

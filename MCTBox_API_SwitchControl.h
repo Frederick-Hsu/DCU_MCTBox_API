@@ -63,14 +63,16 @@
 			
 			
 			
-			//==============================================================================
-			// Test Functions protype :
-			void API MCTBoxAPI_TF_SwitchModule_OpenCloseSwitch(int hThisStep);
-			void API MCTBoxAPI_TF_SwitchModule_ClearAllSwitches(int hThisStep);
-			void API MCTBoxAPI_TF_SwitchModule_SetAllSwitches(int hThisStep);
-			void API MCTBoxAPI_TF_SwitchModule_SetResetSwitch(int hThisStep);
+			#if defined (SUT_SEQUENZER)
+				//==============================================================================
+				// Test Functions protype :
+				void API MCTBoxAPI_TF_SwitchModule_OpenCloseSwitch(int hThisStep);
+				void API MCTBoxAPI_TF_SwitchModule_ClearAllSwitches(int hThisStep);
+				void API MCTBoxAPI_TF_SwitchModule_SetAllSwitches(int hThisStep);
+				void API MCTBoxAPI_TF_SwitchModule_SetResetSwitch(int hThisStep);
 			
-			void API MCTBoxAPI_RegisterSwitchModuleTFSteps(void);
+				void API MCTBoxAPI_RegisterSwitchModuleTFSteps(void);
+			#endif
 
 	#ifdef __cplusplus
 	    }

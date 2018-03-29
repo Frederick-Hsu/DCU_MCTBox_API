@@ -19,7 +19,9 @@
 #include "MCTBox_communication.h" 
 #include "MCTBox_API_Version.h" 
 
-#include "SUT Sequenzer Kernel API.h"
+#if defined (SUT_SEQUENZER)
+	#include "SUT Sequenzer Kernel API.h"
+#endif
 
 //==============================================================================
 // Constants
@@ -39,21 +41,24 @@ static void ExportDllFunc_TESTER_TestFunctionSetInfoStr(void);
 
 //==============================================================================
 // Global variables
-int __stdcall (*pfTESTER_TestFunctionSetInfoStr)(char sKey[], char sLabel[], char sValue[]) = NULL;
+#if defined (SUT_SEQUENZER)
+	int __stdcall (*pfTESTER_TestFunctionSetInfoStr)(char sKey[], char sLabel[], char sValue[]) = NULL;
 
-//==============================================================================
-// Function implementations :
-static void ExportDllFunc_TESTER_TestFunctionSetInfoStr(void)
-{
-	HMODULE hSequenzerKernelDll = NULL;
-	if (pfTESTER_TestFunctionSetInfoStr == NULL)
+	//==============================================================================
+	// Function implementations :
+	static void ExportDllFunc_TESTER_TestFunctionSetInfoStr(void)
 	{
-		hSequenzerKernelDll = GetModuleHandle("Sequencer Kernel.dll");
-		pfTESTER_TestFunctionSetInfoStr = (void *)GetProcAddress(hSequenzerKernelDll, 
-																 "TESTER_TestFunctionSetInfoStr");
+		HMODULE hSequenzerKernelDll = NULL;
+		if (pfTESTER_TestFunctionSetInfoStr == NULL)
+		{
+			hSequenzerKernelDll = GetModuleHandle("Sequencer Kernel.dll");
+			pfTESTER_TestFunctionSetInfoStr = (void *)GetProcAddress(hSequenzerKernelDll, 
+																	 "TESTER_TestFunctionSetInfoStr");
+		}
+		return;
 	}
-	return;
-}
+#endif	/* SUT_SEQUENZER */
+
 
 void API MCTBoxAPI_Bio(char *sMCTBox_BioInfo)
 {
@@ -214,214 +219,215 @@ void API MCTBoxAPI_FirmwareVersion(char *sMCTBox_FirmwareVersionInfo)
 }
 
 
-//==============================================================================
-// Test Function implementations :
-static void MCTBoxAPI_TF_InitHelp(void)
-{
-	TESTER_TestFunctionRegisterHelp(1, "MCTBox serial port number",
-		"Please enter the serial port number of communicating with MCTBox test instrument.");
-}
+#if defined (SUT_SEQUENZER)
+	//==============================================================================
+	// Test Function implementations :
+	static void MCTBoxAPI_TF_InitHelp(void)
+	{
+		TESTER_TestFunctionRegisterHelp(1, "MCTBox serial port number",
+			"Please enter the serial port number of communicating with MCTBox test instrument.");
+	}
 
-void API MCTBoxAPI_TF_Init(int hThisStep)
-{
-	int iResult = 0;
-	char sError[256] = {0};
-	TEST_PARAM_INT(1, iComPortNr);
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iResult = MCTBoxAPI_Init(iComPortNr, sError);
-	if (iResult != 0)
+	void API MCTBoxAPI_TF_Init(int hThisStep)
 	{
-		TEST_RETURN_TESTERERROR(iResult, sError);
+		int iResult = 0;
+		char sError[256] = {0};
+		TEST_PARAM_INT(1, iComPortNr);
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iResult = MCTBoxAPI_Init(iComPortNr, sError);
+		if (iResult != 0)
+		{
+			TEST_RETURN_TESTERERROR(iResult, sError);
+		}
+		else
+		{
+			TEST_RESULT_STR("OK", "");
+		}
+		return;
 	}
-	else
-	{
-		TEST_RESULT_STR("OK", "");
-	}
-	return;
-}
 
-/******************************************************************************/
-void API MCTBoxAPI_TF_Exit(int hThisStep)
-{
-	int iError = 0;
-	char sError[256] = {0};
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iError = MCTBoxAPI_Exit(sError);
-	if (iError)
+	/******************************************************************************/
+	void API MCTBoxAPI_TF_Exit(int hThisStep)
 	{
-		TEST_RETURN_TESTERERROR(iError, sError);
+		int iError = 0;
+		char sError[256] = {0};
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iError = MCTBoxAPI_Exit(sError);
+		if (iError)
+		{
+			TEST_RETURN_TESTERERROR(iError, sError);
+		}
+		else
+		{
+			TEST_RESULT_STR("OK", "");
+		}
+		return;
 	}
-	else
-	{
-		TEST_RESULT_STR("OK", "");
-	}
-	return;
-}
 
-/******************************************************************************/
-void API MCTBoxAPI_TF_SayHello2MCTBox(int hThisStep)
-{
-	int iError = 0;
-	char sError[256] = {0};
-	char sMCTBoxResponse[512] = {0};
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iError = MCTBoxAPI_SayHello2MCTBox(sMCTBoxResponse);
-	if (iError)
+	/******************************************************************************/
+	void API MCTBoxAPI_TF_SayHello2MCTBox(int hThisStep)
 	{
-		iError = MCTBoxAPI_IsExecutionError(sError);
-		TEST_RETURN_TESTERERROR(iError, sError);
+		int iError = 0;
+		char sError[256] = {0};
+		char sMCTBoxResponse[512] = {0};
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iError = MCTBoxAPI_SayHello2MCTBox(sMCTBoxResponse);
+		if (iError)
+		{
+			iError = MCTBoxAPI_IsExecutionError(sError);
+			TEST_RETURN_TESTERERROR(iError, sError);
+		}
+		else
+		{
+			TEST_RESULT_STR(sMCTBoxResponse, "");
+		}
+		return;
 	}
-	else
-	{
-		TEST_RESULT_STR(sMCTBoxResponse, "");
-	}
-	return;
-}
 
-/******************************************************************************/
-static void MCTBoxAPI_TF_TransmitHelp(void)
-{
-	TESTER_TestFunctionRegisterHelp(1, "Command for transmitting to MCTBox",
-		"Please edit the command string transmitting to MCTBox. \nYou should obey the MCTBox's command protocol.");
-}
+	/******************************************************************************/
+	static void MCTBoxAPI_TF_TransmitHelp(void)
+	{
+		TESTER_TestFunctionRegisterHelp(1, "Command for transmitting to MCTBox",
+			"Please edit the command string transmitting to MCTBox. \nYou should obey the MCTBox's command protocol.");
+	}
 
-void API MCTBoxAPI_TF_Transmit(int hThisStep)
-{
-	int iError = 0;
-	char sError[256] = {0};
-	
-	TEST_PARAM_STR(1, sTxCommand);
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iError = MCTBoxAPI_Transmit(sTxCommand);
-	if (iError)
+	void API MCTBoxAPI_TF_Transmit(int hThisStep)
 	{
-		iError = MCTBoxAPI_IsCommunicationError(sError);
-		TEST_RETURN_TESTERERROR(iError, sError);
-	}
-	else
-	{
-		TEST_RESULT_STR("OK", "");
-	}
-	return;
-} 
+		int iError = 0;
+		char sError[256] = {0};
+	
+		TEST_PARAM_STR(1, sTxCommand);
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iError = MCTBoxAPI_Transmit(sTxCommand);
+		if (iError)
+		{
+			iError = MCTBoxAPI_IsCommunicationError(sError);
+			TEST_RETURN_TESTERERROR(iError, sError);
+		}
+		else
+		{
+			TEST_RESULT_STR("OK", "");
+		}
+		return;
+	} 
 
-/******************************************************************************/
-void API MCTBoxAPI_TF_Receive(int hThisStep)
-{
-	int iError = 0;
-	char sError[256] = {0}, sMCTBoxRxResponse[512] = {0};
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iError = MCTBoxAPI_Receive(sMCTBoxRxResponse);
-	if (iError)
+	/******************************************************************************/
+	void API MCTBoxAPI_TF_Receive(int hThisStep)
 	{
-		iError = MCTBoxAPI_IsCommunicationError(sError);
-		TEST_RETURN_TESTERERROR(iError, sError);
+		int iError = 0;
+		char sError[256] = {0}, sMCTBoxRxResponse[512] = {0};
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iError = MCTBoxAPI_Receive(sMCTBoxRxResponse);
+		if (iError)
+		{
+			iError = MCTBoxAPI_IsCommunicationError(sError);
+			TEST_RETURN_TESTERERROR(iError, sError);
+		}
+		else
+		{
+			TEST_RESULT_STR(sMCTBoxRxResponse, "");
+		}
+		return;
 	}
-	else
-	{
-		TEST_RESULT_STR(sMCTBoxRxResponse, "");
-	}
-	return;
-}
 
-/******************************************************************************/
-void API MCTBoxAPI_TF_Request(int hThisStep)
-{
-	int iError = 0;
-	char sError[256] = {0}, sMCTBoxRxResponse[512] = {0};
-	
-	TEST_PARAM_STR(1, sMCTBoxTxCommand);
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iError = MCTBoxAPI_Request(sMCTBoxTxCommand, sMCTBoxRxResponse);
-	if (iError)
+	/******************************************************************************/
+	void API MCTBoxAPI_TF_Request(int hThisStep)
 	{
-		iError = MCTBoxAPI_IsCommunicationError(sError);
-		TEST_RETURN_TESTERERROR(iError, sError);
+		int iError = 0;
+		char sError[256] = {0}, sMCTBoxRxResponse[512] = {0};
+	
+		TEST_PARAM_STR(1, sMCTBoxTxCommand);
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iError = MCTBoxAPI_Request(sMCTBoxTxCommand, sMCTBoxRxResponse);
+		if (iError)
+		{
+			iError = MCTBoxAPI_IsCommunicationError(sError);
+			TEST_RETURN_TESTERERROR(iError, sError);
+		}
+		else
+		{
+			TEST_RESULT_STR(sMCTBoxRxResponse, "");
+		}
+		return;
 	}
-	else
+
+	/******************************************************************************/
+	void API MCTBoxAPI_TF_IsExecutionError(int hThisStep)
 	{
-		TEST_RESULT_STR(sMCTBoxRxResponse, "");
+		int iErrorCode = 0;
+		char sErrorMesg[256] = {0};
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		iErrorCode = MCTBoxAPI_IsExecutionError(sErrorMesg);
+		if (iErrorCode == 0)
+		{
+			TEST_RESULT_STR(sErrorMesg, "");
+		}
+		else
+		{
+			TEST_RETURN_TESTERERROR(iErrorCode, sErrorMesg);
+		}
+		return;  
 	}
-	return;
-}
 
-/******************************************************************************/
-void API MCTBoxAPI_TF_IsExecutionError(int hThisStep)
-{
-	int iErrorCode = 0;
-	char sErrorMesg[256] = {0};
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	iErrorCode = MCTBoxAPI_IsExecutionError(sErrorMesg);
-	if (iErrorCode == 0)
+	/******************************************************************************/
+	void API MCTBoxAPI_TF_FirmwareVersion(int hThisStep)
 	{
-		TEST_RESULT_STR(sErrorMesg, "");
+		char sFirmwareVersionInfo[512] = {0};
+	
+		TEST_CHECK_CBREAK;
+		TEST_STEP_DELAY;
+	
+		MCTBoxAPI_FirmwareVersion(sFirmwareVersionInfo);
+		TEST_RESULT_STR(sFirmwareVersionInfo, "");
+		return;
 	}
-	else
+
+	/******************************************************************************/
+	void API MCTBoxAPI_RegisterCommonTFSteps(void)
 	{
-		TEST_RETURN_TESTERERROR(iErrorCode, sErrorMesg);
+		ExportDllFunc_TESTER_TestFunctionSetInfoStr();
+	
+		TEST_REGISTER(MCTBoxAPI_TF_Init);
+		MCTBoxAPI_TF_InitHelp();
+	
+		TEST_REGISTER(MCTBoxAPI_TF_Exit);
+	
+		TEST_REGISTER(MCTBoxAPI_TF_SayHello2MCTBox);
+	
+		TEST_REGISTER(MCTBoxAPI_TF_Transmit);
+		MCTBoxAPI_TF_TransmitHelp();
+	
+		TEST_REGISTER(MCTBoxAPI_TF_Receive);
+	
+		TEST_REGISTER(MCTBoxAPI_TF_Request);
+		MCTBoxAPI_TF_TransmitHelp();
+	
+		TEST_REGISTER(MCTBoxAPI_TF_IsExecutionError);
+	
+		TEST_REGISTER(MCTBoxAPI_TF_FirmwareVersion);
 	}
-	return;  
-}
-
-/******************************************************************************/
-void API MCTBoxAPI_TF_FirmwareVersion(int hThisStep)
-{
-	char sFirmwareVersionInfo[512] = {0};
-	
-	TEST_CHECK_CBREAK;
-	TEST_STEP_DELAY;
-	
-	MCTBoxAPI_FirmwareVersion(sFirmwareVersionInfo);
-	TEST_RESULT_STR(sFirmwareVersionInfo, "");
-	return;
-}
-
-/******************************************************************************/
-void API MCTBoxAPI_RegisterCommonTFSteps(void)
-{
-	ExportDllFunc_TESTER_TestFunctionSetInfoStr();
-	
-	TEST_REGISTER(MCTBoxAPI_TF_Init);
-	MCTBoxAPI_TF_InitHelp();
-	
-	TEST_REGISTER(MCTBoxAPI_TF_Exit);
-	
-	TEST_REGISTER(MCTBoxAPI_TF_SayHello2MCTBox);
-	
-	TEST_REGISTER(MCTBoxAPI_TF_Transmit);
-	MCTBoxAPI_TF_TransmitHelp();
-	
-	TEST_REGISTER(MCTBoxAPI_TF_Receive);
-	
-	TEST_REGISTER(MCTBoxAPI_TF_Request);
-	MCTBoxAPI_TF_TransmitHelp();
-	
-	TEST_REGISTER(MCTBoxAPI_TF_IsExecutionError);
-	
-	TEST_REGISTER(MCTBoxAPI_TF_FirmwareVersion);
-}
-
+#endif	/* SUT_SEQUENZER */
 
 /*
  * END OF FILE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
